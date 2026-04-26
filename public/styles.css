@@ -671,6 +671,36 @@ tbody tr:hover {
   transform: translate(-50%, 0);
 }
 
+.pdf-status {
+  display: none;
+  width: min(920px, 100%);
+  margin: 0 auto 14px;
+  padding: 12px 14px;
+  border: 1px solid #bfd9cc;
+  border-radius: var(--radius);
+  background: #effaf4;
+  color: #285845;
+  font-weight: 750;
+}
+
+.pdf-status.active {
+  display: block;
+}
+
+.pdf-status a {
+  color: var(--primary-dark);
+  font-weight: 900;
+}
+
+.pdf-status span {
+  display: block;
+  margin-top: 4px;
+  color: var(--muted);
+  font-size: 0.9rem;
+  font-weight: 650;
+  overflow-wrap: anywhere;
+}
+
 @keyframes selectPulse {
   0% {
     transform: scale(1);

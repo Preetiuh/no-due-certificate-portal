@@ -6,6 +6,7 @@ const PORT = Number(process.env.PORT || 3000);
 const PUBLIC_DIR = path.join(__dirname, "public");
 const DB_DIR = path.join(__dirname, "data");
 const DB_FILE = path.join(DB_DIR, "database.json");
+const DOWNLOAD_DIR = path.join(__dirname, "downloads");
 
 const MIME_TYPES = {
   ".html": "text/html; charset=utf-8",
@@ -234,6 +235,159 @@ function buildCertificate(database, student) {
   };
 }
 
+function titleCase(value) {
+  return String(value)
+    .split(" ")
+    .map((part) => (part ? part[0].toUpperCase() + part.slice(1) : part))
+    .join(" ");
+}
+
+function pdfEscape(value) {
+  return String(value).replace(/[\\()]/g, "\\$&");
+}
+
+function createCertificatePdf(certificate) {
+  const pageWidth = 595;
+  const pageHeight = 842;
+  const left = 54;
+  const right = pageWidth - 54;
+  let content = "";
+
+  const add = (command) => {
+    content += command;
+  };
+  const text = (x, y, size, value, font = "F1") => {
+    add(`BT /${font} ${size} Tf ${x} ${y} Td (${pdfEscape(value)}) Tj ET\n`);
+  };
+  const line = (x1, y1, x2, y2) => {
+    add(`${x1} ${y1} m ${x2} ${y2} l S\n`);
+  };
+  const rect = (x, y, width, height) => {
+    add(`${x} ${y} ${width} ${height} re S\n`);
+  };
+  const check = (x, y, checked) => {
+    rect(x, y, 13, 13);
+    if (checked) {
+      add("0.10 0.55 0.32 RG 2 w\n");
+      add(`${x + 3} ${y + 7} m ${x + 6} ${y + 3} l ${x + 11} ${y + 11} l S\n`);
+      add("0 0 0 RG 1 w\n");
+    }
+  };
+
+  add("0 0 0 RG 1 w\n");
+  rect(36, 38, 523, 766);
+  text(82, 770, 15, certificate.institute, "F2");
+  text(96, 748, 11, certificate.department, "F2");
+  line(left, 728, right, 728);
+  text(204, 702, 16, certificate.title, "F2");
+
+  text(left, 664, 11, `Student Name: ${certificate.student.name}`, "F2");
+  text(left, 642, 11, `USN: ${certificate.student.usn}`, "F2");
+  text(330, 642, 11, `Semester: ${certificate.student.semester}`, "F2");
+
+  const tableTop = 604;
+  const rowHeight = 28;
+  const colX = [left, 150, 315, 445, right];
+  rect(left, tableTop - rowHeight, right - left, rowHeight);
+  line(colX[1], tableTop, colX[1], tableTop - rowHeight);
+  line(colX[2], tableTop, colX[2], tableTop - rowHeight);
+  line(colX[3], tableTop, colX[3], tableTop - rowHeight);
+  text(colX[0] + 8, tableTop - 18, 10, "Subject Code", "F2");
+  text(colX[1] + 8, tableTop - 18, 10, "Subject Name", "F2");
+  text(colX[2] + 8, tableTop - 18, 10, "Faculty Name", "F2");
+  text(colX[3] + 18, tableTop - 18, 10, "Status", "F2");
+
+  certificate.subjects.forEach((subject, index) => {
+    const top = tableTop - rowHeight * (index + 1);
+    const bottom = top - rowHeight;
+    rect(left, bottom, right - left, rowHeight);
+    line(colX[1], top, colX[1], bottom);
+    line(colX[2], top, colX[2], bottom);
+    line(colX[3], top, colX[3], bottom);
+    text(colX[0] + 8, bottom + 10, 9.5, subject.code);
+    text(colX[1] + 8, bottom + 10, 9.5, subject.name);
+    text(colX[2] + 8, bottom + 10, 9.5, titleCase(subject.faculty));
+    check(colX[3] + 32, bottom + 8, subject.status);
+  });
+
+  line(left, 146, 242, 146);
+  line(352, 146, right, 146);
+  text(93, 127, 10, "Mentor Signature", "F2");
+  text(407, 127, 10, "HOD Signature", "F2");
+
+  const objects = [
+    "<< /Type /Catalog /Pages 2 0 R >>",
+    "<< /Type /Pages /Kids [3 0 R] /Count 1 >>",
+    `<< /Type /Page /Parent 2 0 R /MediaBox [0 0 ${pageWidth} ${pageHeight}] /Resources << /Font << /F1 4 0 R /F2 5 0 R >> >> /Contents 6 0 R >>`,
+    "<< /Type /Font /Subtype /Type1 /BaseFont /Helvetica >>",
+    "<< /Type /Font /Subtype /Type1 /BaseFont /Helvetica-Bold >>",
+    `<< /Length ${content.length} >>\nstream\n${content}endstream`
+  ];
+
+  let pdf = "%PDF-1.4\n";
+  const offsets = [0];
+  objects.forEach((object, index) => {
+    offsets.push(pdf.length);
+    pdf += `${index + 1} 0 obj\n${object}\nendobj\n`;
+  });
+  const xrefStart = pdf.length;
+  pdf += `xref\n0 ${objects.length + 1}\n0000000000 65535 f \n`;
+  offsets.slice(1).forEach((offset) => {
+    pdf += `${String(offset).padStart(10, "0")} 00000 n \n`;
+  });
+  pdf += `trailer\n<< /Size ${objects.length + 1} /Root 1 0 R >>\nstartxref\n${xrefStart}\n%%EOF`;
+  return Buffer.from(pdf, "utf8");
+}
+
+function sendPdf(response, certificate) {
+  const pdf = createCertificatePdf(certificate);
+  const safeUsn = certificate.student.usn.replace(/[^a-z0-9_-]/gi, "_");
+
+  response.writeHead(200, {
+    "Content-Type": "application/pdf",
+    "Content-Length": pdf.length,
+    "Content-Disposition": `attachment; filename="No_Due_Certificate_${safeUsn}.pdf"`,
+    "Cache-Control": "no-store"
+  });
+  response.end(pdf);
+}
+
+function savePdf(certificate) {
+  if (!fs.existsSync(DOWNLOAD_DIR)) {
+    fs.mkdirSync(DOWNLOAD_DIR, { recursive: true });
+  }
+
+  const safeUsn = certificate.student.usn.replace(/[^a-z0-9_-]/gi, "_");
+  const filename = `No_Due_Certificate_${safeUsn}.pdf`;
+  const filePath = path.join(DOWNLOAD_DIR, filename);
+  fs.writeFileSync(filePath, createCertificatePdf(certificate));
+
+  return {
+    filename,
+    filePath,
+    url: `/api/downloads/${encodeURIComponent(filename)}`
+  };
+}
+
+function sendSavedPdf(response, filename) {
+  const safeFilename = path.basename(filename);
+  const filePath = path.join(DOWNLOAD_DIR, safeFilename);
+
+  if (!filePath.startsWith(DOWNLOAD_DIR) || !fs.existsSync(filePath)) {
+    sendError(response, 404, "PDF file not found.");
+    return;
+  }
+
+  const pdf = fs.readFileSync(filePath);
+  response.writeHead(200, {
+    "Content-Type": "application/pdf",
+    "Content-Length": pdf.length,
+    "Content-Disposition": `inline; filename="${safeFilename}"`,
+    "Cache-Control": "no-store"
+  });
+  response.end(pdf);
+}
+
 function parseRequestBody(request) {
   return new Promise((resolve, reject) => {
     let body = "";
@@ -375,6 +529,46 @@ async function handleApi(request, response, url) {
     }
 
     sendJson(response, 200, { certificate: buildCertificate(database, student) });
+    return;
+  }
+
+  if (request.method === "GET" && url.pathname === "/api/certificate/pdf") {
+    const studentId = url.searchParams.get("studentId");
+    const usn = normalize(url.searchParams.get("usn"));
+    const student = database.students.find(
+      (item) => item.id === studentId || normalize(item.usn) === usn
+    );
+
+    if (!student) {
+      sendError(response, 404, "Student not found.");
+      return;
+    }
+
+    sendPdf(response, buildCertificate(database, student));
+    return;
+  }
+
+  if (request.method === "GET" && url.pathname === "/api/certificate/pdf/save") {
+    const studentId = url.searchParams.get("studentId");
+    const usn = normalize(url.searchParams.get("usn"));
+    const student = database.students.find(
+      (item) => item.id === studentId || normalize(item.usn) === usn
+    );
+
+    if (!student) {
+      sendError(response, 404, "Student not found.");
+      return;
+    }
+
+    sendJson(response, 200, {
+      message: "PDF saved successfully.",
+      pdf: savePdf(buildCertificate(database, student))
+    });
+    return;
+  }
+
+  if (request.method === "GET" && url.pathname.startsWith("/api/downloads/")) {
+    sendSavedPdf(response, decodeURIComponent(url.pathname.replace("/api/downloads/", "")));
     return;
   }
 

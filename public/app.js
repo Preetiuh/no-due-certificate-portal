@@ -35,6 +35,7 @@ const certificateContent = document.querySelector("#certificate-content");
 const certificateBackButton = document.querySelector("#certificate-back-button");
 const downloadPdfButton = document.querySelector("#download-pdf-button");
 const printButton = document.querySelector("#print-button");
+const pdfStatus = document.querySelector("#pdf-status");
 const toast = document.querySelector("#toast");
 
 function showScreen(screenId) {
@@ -293,6 +294,8 @@ async function loadCertificate(studentId, backScreen) {
     const payload = await api(`/api/certificate?studentId=${encodeURIComponent(studentId)}`);
     state.certificate = payload.certificate;
     state.certificateBackScreen = backScreen;
+    pdfStatus.classList.remove("active");
+    pdfStatus.innerHTML = "";
     renderCertificate();
     showScreen("certificate-screen");
   } catch (error) {
@@ -362,18 +365,30 @@ function renderCertificate() {
   `;
 }
 
-function downloadCertificatePdf() {
+async function downloadCertificatePdf() {
   if (!state.certificate) return;
 
-  const pdf = createCertificatePdf(state.certificate);
-  const blob = new Blob([pdf], { type: "application/pdf" });
-  const link = document.createElement("a");
-  link.href = URL.createObjectURL(blob);
-  link.download = `No_Due_Certificate_${state.certificate.student.usn}.pdf`;
-  document.body.appendChild(link);
-  link.click();
-  link.remove();
-  URL.revokeObjectURL(link.href);
+  downloadPdfButton.disabled = true;
+  downloadPdfButton.textContent = "Saving...";
+
+  try {
+    const payload = await api(`/api/certificate/pdf/save?studentId=${encodeURIComponent(state.certificate.student.id)}`);
+    const url = payload.pdf.url;
+    const filePath = payload.pdf.filePath;
+
+    pdfStatus.innerHTML = `
+      PDF saved successfully.
+      <a href="${escapeHtml(url)}" target="_blank" rel="noopener">Open PDF</a>
+      <span>${escapeHtml(filePath)}</span>
+    `;
+    pdfStatus.classList.add("active");
+    showToast("PDF saved successfully.");
+  } catch (error) {
+    showToast(error.message);
+  } finally {
+    downloadPdfButton.disabled = false;
+    downloadPdfButton.textContent = "Download PDF";
+  }
 }
 
 function createCertificatePdf(certificate) {
