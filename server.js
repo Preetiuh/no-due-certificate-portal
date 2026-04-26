@@ -695,6 +695,17 @@ const server = http.createServer(async (request, response) => {
   }
 });
 
+server.on("error", (error) => {
+  if (error.code === "EADDRINUSE") {
+    console.error(`Port ${PORT} is already in use.`);
+    console.error("Close the other running server, or start this app with a different PORT value.");
+    console.error("Example: $env:PORT=3001; node server.js");
+    process.exit(1);
+  }
+
+  throw error;
+});
+
 server.listen(PORT, () => {
   console.log(`Students No Due Certificate portal running at http://localhost:${PORT}`);
 });
