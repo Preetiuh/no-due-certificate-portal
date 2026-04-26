@@ -1,0 +1,156 @@
+<!doctype html>
+<html lang="en">
+  <head>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <title>Students No Due Certificate</title>
+    <link rel="stylesheet" href="styles.css">
+  </head>
+  <body>
+    <div class="app-shell">
+      <header class="portal-header">
+        <div class="brand-mark" aria-hidden="true">G</div>
+        <div>
+          <p class="eyebrow">GSSSIETW</p>
+          <h1>Students No Due Certificate</h1>
+          <p class="department">Department Of Artificial Intelligence And Data Science</p>
+        </div>
+      </header>
+
+      <main>
+        <section class="screen active" id="home-screen">
+          <div class="home-panel">
+            <div>
+              <p class="section-kicker">Semester End Portal</p>
+              <h2>STUDENTS NO DUE CERTIFICATE</h2>
+            </div>
+            <div class="role-grid">
+              <button class="role-card" type="button" data-role="faculty">
+                <span class="role-icon faculty-icon" aria-hidden="true"></span>
+                <span>Faculty</span>
+              </button>
+              <button class="role-card" type="button" data-role="student">
+                <span class="role-icon student-icon" aria-hidden="true"></span>
+                <span>Student</span>
+              </button>
+            </div>
+          </div>
+        </section>
+
+        <section class="screen" id="login-screen">
+          <div class="top-actions">
+            <button class="icon-button" type="button" data-action="home" aria-label="Back to home">
+              <span aria-hidden="true">&larr;</span>
+            </button>
+          </div>
+          <form class="login-card" id="login-form">
+            <p class="section-kicker" id="login-role-label">Login</p>
+            <h2 id="login-title">Portal Login</h2>
+            <label for="username">User name</label>
+            <input id="username" name="username" type="text" autocomplete="username" required>
+            <label for="password">Password</label>
+            <input id="password" name="password" type="password" autocomplete="current-password" required>
+            <p class="form-error" id="login-error" role="alert"></p>
+            <button class="primary-button full-width" type="submit">Login</button>
+          </form>
+        </section>
+
+        <section class="screen" id="faculty-dashboard-screen">
+          <div class="top-actions split">
+            <button class="icon-button" type="button" data-action="home" aria-label="Back to role selection">
+              <span aria-hidden="true">&larr;</span>
+            </button>
+            <button class="secondary-button" type="button" data-action="logout">Logout</button>
+          </div>
+          <div class="dashboard-panel">
+            <div>
+              <p class="section-kicker">Faculty Dashboard</p>
+              <h2 id="faculty-welcome">Welcome</h2>
+            </div>
+            <div class="field-row">
+              <label for="semester-select">Select Semester</label>
+              <select id="semester-select"></select>
+            </div>
+            <button class="accent-button" id="make-updates-button" type="button">Make Updates</button>
+          </div>
+        </section>
+
+        <section class="screen" id="faculty-updates-screen">
+          <div class="top-actions split">
+            <button class="icon-button" type="button" data-action="faculty-dashboard" aria-label="Back to faculty dashboard">
+              <span aria-hidden="true">&larr;</span>
+            </button>
+            <button class="primary-button compact" id="sync-button" type="button">Update</button>
+          </div>
+
+          <div class="table-panel">
+            <div class="table-heading">
+              <div>
+                <p class="section-kicker" id="semester-label">Semester</p>
+                <h2>Student Database</h2>
+                <p class="muted" id="faculty-subject-label"></p>
+              </div>
+              <button class="select-all-button" id="select-all-button" type="button">
+                <span class="select-icon" aria-hidden="true"></span>
+                <span>Select All</span>
+              </button>
+            </div>
+            <div class="assignment-warning" id="assignment-warning"></div>
+            <div class="table-wrap">
+              <table>
+                <thead>
+                  <tr>
+                    <th>Name</th>
+                    <th>USN</th>
+                    <th>View Certificate</th>
+                    <th>Status</th>
+                  </tr>
+                </thead>
+                <tbody id="students-table-body"></tbody>
+              </table>
+            </div>
+          </div>
+        </section>
+
+        <section class="screen" id="student-dashboard-screen">
+          <div class="top-actions split">
+            <button class="icon-button" type="button" data-action="home" aria-label="Back to role selection">
+              <span aria-hidden="true">&larr;</span>
+            </button>
+            <button class="secondary-button" type="button" data-action="logout">Logout</button>
+          </div>
+          <div class="student-panel">
+            <p class="section-kicker">Student Dashboard</p>
+            <div class="student-summary">
+              <div>
+                <span>Student Name</span>
+                <strong id="student-name"></strong>
+              </div>
+              <div>
+                <span>USN</span>
+                <strong id="student-usn"></strong>
+              </div>
+            </div>
+            <button class="primary-button" id="student-certificate-button" type="button">View Certificate</button>
+          </div>
+        </section>
+
+        <section class="screen" id="certificate-screen">
+          <div class="top-actions split no-print">
+            <button class="icon-button" type="button" id="certificate-back-button" aria-label="Back">
+              <span aria-hidden="true">&larr;</span>
+            </button>
+            <div class="button-group">
+              <button class="secondary-button" id="print-button" type="button">Print</button>
+              <button class="primary-button compact" id="download-pdf-button" type="button">Download PDF</button>
+            </div>
+          </div>
+          <article class="certificate" id="certificate-content"></article>
+        </section>
+      </main>
+    </div>
+
+    <div class="toast" id="toast" role="status" aria-live="polite"></div>
+    <script src="app.js"></script>
+  </body>
+</html>
