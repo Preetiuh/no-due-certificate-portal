@@ -1,0 +1,158 @@
+<!doctype html>
+<html lang="en">
+  <head>
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1" />
+    <title>AV MARL Phase 2 Simulation</title>
+    <link rel="stylesheet" href="./styles.css?v=live-location-v2" />
+  </head>
+  <body>
+    <header class="topbar">
+      <div>
+        <h1>Multi-Agent Autonomous Vehicle Coordination</h1>
+      </div>
+      <div class="run-controls" aria-label="Simulation controls">
+        <button id="toggleRun" class="primary">Pause</button>
+        <button id="resetRun">Reset</button>
+        <button id="runComparison">Run Comparison</button>
+      </div>
+    </header>
+
+    <main class="workspace">
+      <section class="sim-panel" aria-label="Live simulation area">
+        <div class="mode-row" role="group" aria-label="Policy mode">
+          <button class="mode active" data-mode="coordinated">Coordinated V2V</button>
+          <button class="mode" data-mode="noncoordinated">Non-Coordinated</button>
+          <button class="mode" data-mode="signal">Signal Rules</button>
+          <button class="mode" data-mode="learning">RL Learning</button>
+        </div>
+
+        <div class="canvas-shell">
+          <canvas id="world" width="1120" height="760" aria-label="Autonomous vehicle simulation canvas"></canvas>
+          <div class="legend" aria-label="Legend">
+            <span><i class="swatch ego"></i> Autonomous vehicle</span>
+            <span><i class="swatch comm"></i> V2V message</span>
+            <span><i class="swatch danger"></i> Collision risk</span>
+            <span><i class="swatch route"></i> Route target</span>
+          </div>
+        </div>
+
+        <div class="decision-strip">
+          <div>
+            <span class="strip-label">Current policy</span>
+            <strong id="policyName">Coordinated V2V</strong>
+          </div>
+          <div>
+            <span class="strip-label">Intersection signal</span>
+            <strong id="signalState">North-South green</strong>
+          </div>
+          <div>
+            <span class="strip-label">Latest decision</span>
+            <strong id="decisionText">Vehicles are negotiating priority</strong>
+          </div>
+        </div>
+      </section>
+
+      <aside class="control-panel" aria-label="Controls and telemetry">
+        <section class="panel-section">
+          <h2>Traffic Setup</h2>
+          <label class="slider-line">
+            <span>Traffic density</span>
+            <input id="density" type="range" min="0.15" max="0.95" step="0.05" value="0.58" />
+            <strong id="densityValue">58%</strong>
+          </label>
+          <label class="slider-line">
+            <span>Speed limit</span>
+            <input id="speedLimit" type="range" min="32" max="72" step="4" value="52" />
+            <strong id="speedValue">52 km/h</strong>
+          </label>
+          <div class="toggles">
+            <label><input id="v2vToggle" type="checkbox" checked /> V2V communication</label>
+            <label><input id="shieldToggle" type="checkbox" checked /> Safety shield</label>
+            <label><input id="signalToggle" type="checkbox" checked /> Signal awareness</label>
+          </div>
+        </section>
+
+        <section class="panel-section">
+          <h2>Live Location</h2>
+          <p id="locationText">Live GPS tracking is ready. Press Start Live Tracking and allow location permission.</p>
+          <div class="location-actions">
+            <button id="useLocation">Start Live Tracking</button>
+            <button id="stopLocation" disabled>Stop</button>
+          </div>
+          <dl class="location-readout" aria-label="Live location readout">
+            <div>
+              <dt>Latitude</dt>
+              <dd id="latValue">--</dd>
+            </div>
+            <div>
+              <dt>Longitude</dt>
+              <dd id="lngValue">--</dd>
+            </div>
+            <div>
+              <dt>Accuracy</dt>
+              <dd id="accuracyValue">--</dd>
+            </div>
+          </dl>
+        </section>
+
+        <section class="panel-section metric-grid" aria-label="Live metrics">
+          <div>
+            <span>Completed</span>
+            <strong id="completedMetric">0</strong>
+          </div>
+          <div>
+            <span>Collisions</span>
+            <strong id="collisionMetric">0</strong>
+          </div>
+          <div>
+            <span>Avg Wait</span>
+            <strong id="waitMetric">0.0s</strong>
+          </div>
+          <div>
+            <span>Flow</span>
+            <strong id="flowMetric">0.00</strong>
+          </div>
+        </section>
+
+        <section class="panel-section">
+          <h2>Vehicle Telemetry</h2>
+          <div class="telemetry-table">
+            <table>
+              <thead>
+                <tr>
+                  <th>Vehicle</th>
+                  <th>Speed</th>
+                  <th>Signal</th>
+                  <th>Decision</th>
+                </tr>
+              </thead>
+              <tbody id="telemetryBody"></tbody>
+            </table>
+          </div>
+        </section>
+      </aside>
+
+      <section class="analysis-panel" aria-label="Analysis graphs">
+        <div class="chart-block">
+          <h2>Coordinated vs Non-Coordinated</h2>
+          <canvas id="comparisonChart" width="580" height="250"></canvas>
+        </div>
+        <div class="chart-block">
+          <h2>Live Safety and Traffic Flow</h2>
+          <canvas id="timelineChart" width="580" height="250"></canvas>
+        </div>
+        <div class="analysis-text">
+          <h2>What The Model Demonstrates</h2>
+          <p>
+            Vehicles adjust speed from traffic signals, same-lane gaps, side-vehicle ETA, V2V messages,
+            and learned action values. The coordinated mode applies a safety shield before entering
+            the conflict zone, which reduces collision chances while keeping throughput high.
+          </p>
+        </div>
+      </section>
+    </main>
+
+    <script type="module" src="./src/app.js?v=traffic-graph-v3"></script>
+  </body>
+</html>

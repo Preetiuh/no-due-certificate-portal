@@ -1,0 +1,7 @@
+__pycache__/
+*.pyc
+outputs/latest/
+outputs/smoke/
+outputs/pycache/
+presentation/scratch/
+presentation/output/
