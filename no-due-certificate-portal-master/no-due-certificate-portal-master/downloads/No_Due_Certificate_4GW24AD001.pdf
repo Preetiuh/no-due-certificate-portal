@@ -1,0 +1,128 @@
+%PDF-1.4
+1 0 obj
+<< /Type /Catalog /Pages 2 0 R >>
+endobj
+2 0 obj
+<< /Type /Pages /Kids [3 0 R] /Count 1 >>
+endobj
+3 0 obj
+<< /Type /Page /Parent 2 0 R /MediaBox [0 0 595 842] /Resources << /Font << /F1 4 0 R /F2 5 0 R >> >> /Contents 6 0 R >>
+endobj
+4 0 obj
+<< /Type /Font /Subtype /Type1 /BaseFont /Helvetica >>
+endobj
+5 0 obj
+<< /Type /Font /Subtype /Type1 /BaseFont /Helvetica-Bold >>
+endobj
+6 0 obj
+<< /Length 2869 >>
+stream
+0 0 0 RG 1 w
+36 38 523 766 re S
+BT /F2 15 Tf 82 770 Td (GSSS Institute Of Engineering And Technology For Women) Tj ET
+BT /F2 11 Tf 96 748 Td (Department Of Artificial Intelligence And Data Science) Tj ET
+54 728 m 541 728 l S
+BT /F2 16 Tf 204 702 Td (NO DUE CERTIFICATE) Tj ET
+BT /F2 11 Tf 54 664 Td (Student Name: Aishwarya K) Tj ET
+BT /F2 11 Tf 54 642 Td (USN: 4GW24AD001) Tj ET
+BT /F2 11 Tf 330 642 Td (Semester: 3rd Semester) Tj ET
+54 576 487 28 re S
+150 604 m 150 576 l S
+315 604 m 315 576 l S
+445 604 m 445 576 l S
+BT /F2 10 Tf 62 586 Td (Subject Code) Tj ET
+BT /F2 10 Tf 158 586 Td (Subject Name) Tj ET
+BT /F2 10 Tf 323 586 Td (Faculty Name) Tj ET
+BT /F2 10 Tf 463 586 Td (Status) Tj ET
+54 548 487 28 re S
+150 576 m 150 548 l S
+315 576 m 315 548 l S
+445 576 m 445 548 l S
+BT /F1 9.5 Tf 62 558 Td (23MAT31) Tj ET
+BT /F1 9.5 Tf 158 558 Td (Mathematics 3) Tj ET
+BT /F1 9.5 Tf 323 558 Td (Faculty 1) Tj ET
+477 556 13 13 re S
+54 520 487 28 re S
+150 548 m 150 520 l S
+315 548 m 315 520 l S
+445 548 m 445 520 l S
+BT /F1 9.5 Tf 62 530 Td (23AD32) Tj ET
+BT /F1 9.5 Tf 158 530 Td (DDCO) Tj ET
+BT /F1 9.5 Tf 323 530 Td (Faculty 2) Tj ET
+477 528 13 13 re S
+54 492 487 28 re S
+150 520 m 150 492 l S
+315 520 m 315 492 l S
+445 520 m 445 492 l S
+BT /F1 9.5 Tf 62 502 Td (23AD33) Tj ET
+BT /F1 9.5 Tf 158 502 Td (OS) Tj ET
+BT /F1 9.5 Tf 323 502 Td (Faculty 3) Tj ET
+477 500 13 13 re S
+54 464 487 28 re S
+150 492 m 150 464 l S
+315 492 m 315 464 l S
+445 492 m 445 464 l S
+BT /F1 9.5 Tf 62 474 Td (23AD34) Tj ET
+BT /F1 9.5 Tf 158 474 Td (DSA) Tj ET
+BT /F1 9.5 Tf 323 474 Td (Faculty 4) Tj ET
+477 472 13 13 re S
+54 436 487 28 re S
+150 464 m 150 436 l S
+315 464 m 315 436 l S
+445 464 m 445 436 l S
+BT /F1 9.5 Tf 62 446 Td (23ADL35) Tj ET
+BT /F1 9.5 Tf 158 446 Td (DSA Lab) Tj ET
+BT /F1 9.5 Tf 323 446 Td (Faculty 5) Tj ET
+477 444 13 13 re S
+54 408 487 28 re S
+150 436 m 150 408 l S
+315 436 m 315 408 l S
+445 436 m 445 408 l S
+BT /F1 9.5 Tf 62 418 Td (23SCR36) Tj ET
+BT /F1 9.5 Tf 158 418 Td (SCR) Tj ET
+BT /F1 9.5 Tf 323 418 Td (Faculty 6) Tj ET
+477 416 13 13 re S
+54 380 487 28 re S
+150 408 m 150 380 l S
+315 408 m 315 380 l S
+445 408 m 445 380 l S
+BT /F1 9.5 Tf 62 390 Td (23NSS37) Tj ET
+BT /F1 9.5 Tf 158 390 Td (NSS) Tj ET
+BT /F1 9.5 Tf 323 390 Td (Faculty 7) Tj ET
+477 388 13 13 re S
+54 352 487 28 re S
+150 380 m 150 352 l S
+315 380 m 315 352 l S
+445 380 m 445 352 l S
+BT /F1 9.5 Tf 62 362 Td (23EXL38) Tj ET
+BT /F1 9.5 Tf 158 362 Td (EXCEL) Tj ET
+BT /F1 9.5 Tf 323 362 Td (Faculty 8) Tj ET
+477 360 13 13 re S
+54 324 487 28 re S
+150 352 m 150 324 l S
+315 352 m 315 324 l S
+445 352 m 445 324 l S
+BT /F1 9.5 Tf 62 334 Td (23AD39) Tj ET
+BT /F1 9.5 Tf 158 334 Td (OOPS with Java) Tj ET
+BT /F1 9.5 Tf 323 334 Td (Faculty 9) Tj ET
+477 332 13 13 re S
+54 146 m 242 146 l S
+352 146 m 541 146 l S
+BT /F2 10 Tf 93 127 Td (Mentor Signature) Tj ET
+BT /F2 10 Tf 407 127 Td (HOD Signature) Tj ET
+endstream
+endobj
+xref
+0 7
+0000000000 65535 f 
+0000000009 00000 n 
+0000000058 00000 n 
+0000000115 00000 n 
+0000000251 00000 n 
+0000000321 00000 n 
+0000000396 00000 n 
+trailer
+<< /Size 7 /Root 1 0 R >>
+startxref
+3316
+%%EOF

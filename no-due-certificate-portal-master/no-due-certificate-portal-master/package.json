@@ -1,0 +1,17 @@
+{
+  "name": "students-no-due-certificate",
+  "version": "1.0.0",
+  "description": "Department portal for managing semester-end student no due certificates.",
+  "main": "server.js",
+  "scripts": {
+    "start": "node server.js",
+    "dev": "node server.js"
+  },
+  "keywords": [
+    "no-due-certificate",
+    "student-portal",
+    "faculty-portal"
+  ],
+  "author": "",
+  "license": "MIT"
+}

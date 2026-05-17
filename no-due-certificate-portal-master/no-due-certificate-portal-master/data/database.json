@@ -1,0 +1,849 @@
+{
+  "institute": "GSSS Institute Of Engineering And Technology For Women",
+  "department": "Department Of Artificial Intelligence And Data Science",
+  "faculties": [
+    {
+      "id": "F-1",
+      "name": "faculty 1",
+      "username": "faculty 1",
+      "password": "faculty 1",
+      "subjectIndex": 0
+    },
+    {
+      "id": "F-2",
+      "name": "faculty 2",
+      "username": "faculty 2",
+      "password": "faculty 2",
+      "subjectIndex": 1
+    },
+    {
+      "id": "F-3",
+      "name": "faculty 3",
+      "username": "faculty 3",
+      "password": "faculty 3",
+      "subjectIndex": 2
+    },
+    {
+      "id": "F-4",
+      "name": "faculty 4",
+      "username": "faculty 4",
+      "password": "faculty 4",
+      "subjectIndex": 3
+    },
+    {
+      "id": "F-5",
+      "name": "faculty 5",
+      "username": "faculty 5",
+      "password": "faculty 5",
+      "subjectIndex": 4
+    },
+    {
+      "id": "F-6",
+      "name": "faculty 6",
+      "username": "faculty 6",
+      "password": "faculty 6",
+      "subjectIndex": 5
+    },
+    {
+      "id": "F-7",
+      "name": "faculty 7",
+      "username": "faculty 7",
+      "password": "faculty 7",
+      "subjectIndex": 6
+    },
+    {
+      "id": "F-8",
+      "name": "faculty 8",
+      "username": "faculty 8",
+      "password": "faculty 8",
+      "subjectIndex": 7
+    },
+    {
+      "id": "F-9",
+      "name": "faculty 9",
+      "username": "faculty 9",
+      "password": "faculty 9",
+      "subjectIndex": 8
+    }
+  ],
+  "semesters": [
+    {
+      "id": "3",
+      "label": "3rd Semester",
+      "subjects": [
+        {
+          "code": "23MAT31",
+          "name": "Mathematics 3",
+          "faculty": "faculty 1"
+        },
+        {
+          "code": "23AD32",
+          "name": "DDCO",
+          "faculty": "faculty 2"
+        },
+        {
+          "code": "23AD33",
+          "name": "OS",
+          "faculty": "faculty 3"
+        },
+        {
+          "code": "23AD34",
+          "name": "DSA",
+          "faculty": "faculty 4"
+        },
+        {
+          "code": "23ADL35",
+          "name": "DSA Lab",
+          "faculty": "faculty 5"
+        },
+        {
+          "code": "23SCR36",
+          "name": "SCR",
+          "faculty": "faculty 6"
+        },
+        {
+          "code": "23NSS37",
+          "name": "NSS",
+          "faculty": "faculty 7"
+        },
+        {
+          "code": "23EXL38",
+          "name": "EXCEL",
+          "faculty": "faculty 8"
+        },
+        {
+          "code": "23AD39",
+          "name": "OOPS with Java",
+          "faculty": "faculty 9"
+        }
+      ]
+    },
+    {
+      "id": "4",
+      "label": "4th Semester",
+      "subjects": [
+        {
+          "code": "23AD41",
+          "name": "ADA",
+          "faculty": "faculty 1"
+        },
+        {
+          "code": "23AD42",
+          "name": "AI",
+          "faculty": "faculty 2"
+        },
+        {
+          "code": "23AD43",
+          "name": "DBMS",
+          "faculty": "faculty 3"
+        },
+        {
+          "code": "23ADL44",
+          "name": "ADA Lab",
+          "faculty": "faculty 4"
+        },
+        {
+          "code": "23BIO45",
+          "name": "Biology",
+          "faculty": "faculty 5"
+        },
+        {
+          "code": "23UHV46",
+          "name": "UHV",
+          "faculty": "faculty 6"
+        },
+        {
+          "code": "23NSS47",
+          "name": "NSS",
+          "faculty": "faculty 7"
+        },
+        {
+          "code": "23MAT48",
+          "name": "DMS",
+          "faculty": "faculty 8"
+        },
+        {
+          "code": "23WEB49",
+          "name": "MERN",
+          "faculty": "faculty 9"
+        }
+      ]
+    },
+    {
+      "id": "5",
+      "label": "5th Semester",
+      "subjects": [
+        {
+          "code": "23AD51",
+          "name": "SEPM",
+          "faculty": "faculty 1"
+        },
+        {
+          "code": "23AD52",
+          "name": "CN",
+          "faculty": "faculty 2"
+        },
+        {
+          "code": "23AD53",
+          "name": "TOC",
+          "faculty": "faculty 3"
+        },
+        {
+          "code": "23ADL54",
+          "name": "DV Lab",
+          "faculty": "faculty 4"
+        },
+        {
+          "code": "23ADP55",
+          "name": "Mini Project",
+          "faculty": "faculty 5"
+        },
+        {
+          "code": "23RMI56",
+          "name": "RM & IPR",
+          "faculty": "faculty 6"
+        },
+        {
+          "code": "23EVS57",
+          "name": "EVS",
+          "faculty": "faculty 7"
+        },
+        {
+          "code": "23NSS58",
+          "name": "NSS",
+          "faculty": "faculty 8"
+        },
+        {
+          "code": "23CC59",
+          "name": "CC",
+          "faculty": "faculty 9"
+        }
+      ]
+    },
+    {
+      "id": "6",
+      "label": "6th Semester",
+      "subjects": [
+        {
+          "code": "23AD61",
+          "name": "BDA",
+          "faculty": "faculty 1"
+        },
+        {
+          "code": "23AD62",
+          "name": "ML",
+          "faculty": "faculty 2"
+        },
+        {
+          "code": "23AD63",
+          "name": "HC-AI",
+          "faculty": "faculty 3"
+        },
+        {
+          "code": "23AD64",
+          "name": "CE",
+          "faculty": "faculty 4"
+        },
+        {
+          "code": "23ADP65",
+          "name": "Project P-1",
+          "faculty": "faculty 5"
+        },
+        {
+          "code": "23ADL66",
+          "name": "DevOps Lab",
+          "faculty": "faculty 6"
+        },
+        {
+          "code": "23IKS67",
+          "name": "IKS",
+          "faculty": "faculty 7"
+        },
+        {
+          "code": "23NSS68",
+          "name": "NSS",
+          "faculty": "faculty 8"
+        }
+      ]
+    },
+    {
+      "id": "7",
+      "label": "7th Semester",
+      "subjects": [
+        {
+          "code": "23AD71",
+          "name": "IOT",
+          "faculty": "faculty 1"
+        },
+        {
+          "code": "23AD72",
+          "name": "PM",
+          "faculty": "faculty 2"
+        },
+        {
+          "code": "23AD73",
+          "name": "CNS",
+          "faculty": "faculty 3"
+        },
+        {
+          "code": "23ADP74",
+          "name": "Major Project P-2",
+          "faculty": "faculty 4"
+        },
+        {
+          "code": "23AD75",
+          "name": "CNR",
+          "faculty": "faculty 5"
+        },
+        {
+          "code": "23AD76",
+          "name": "BDA",
+          "faculty": "faculty 6"
+        }
+      ]
+    },
+    {
+      "id": "8",
+      "label": "8th Semester",
+      "subjects": [
+        {
+          "code": "23AD81",
+          "name": "sub1",
+          "faculty": "faculty 1"
+        },
+        {
+          "code": "23AD82",
+          "name": "sub2",
+          "faculty": "faculty 2"
+        },
+        {
+          "code": "23AD83",
+          "name": "sub3",
+          "faculty": "faculty 3"
+        }
+      ]
+    }
+  ],
+  "students": [
+    {
+      "id": "S3-001",
+      "name": "Aishwarya K",
+      "usn": "4GW24AD001",
+      "semester": "3",
+      "username": "Aishwarya K",
+      "password": "Aishwarya K",
+      "dues": [
+        false,
+        false,
+        false,
+        false,
+        false,
+        false,
+        false,
+        false,
+        false
+      ]
+    },
+    {
+      "id": "S3-002",
+      "name": "Ananya Rao",
+      "usn": "4GW24AD002",
+      "semester": "3",
+      "username": "Ananya Rao",
+      "password": "Ananya Rao",
+      "dues": [
+        false,
+        false,
+        false,
+        false,
+        false,
+        false,
+        false,
+        false,
+        false
+      ]
+    },
+    {
+      "id": "S3-003",
+      "name": "Bhoomika S",
+      "usn": "4GW24AD003",
+      "semester": "3",
+      "username": "Bhoomika S",
+      "password": "Bhoomika S",
+      "dues": [
+        false,
+        false,
+        false,
+        false,
+        false,
+        false,
+        false,
+        false,
+        false
+      ]
+    },
+    {
+      "id": "S3-004",
+      "name": "Chaitra M",
+      "usn": "4GW24AD004",
+      "semester": "3",
+      "username": "Chaitra M",
+      "password": "Chaitra M",
+      "dues": [
+        false,
+        false,
+        false,
+        false,
+        false,
+        false,
+        false,
+        false,
+        false
+      ]
+    },
+    {
+      "id": "S3-005",
+      "name": "Deepika N",
+      "usn": "4GW24AD005",
+      "semester": "3",
+      "username": "Deepika N",
+      "password": "Deepika N",
+      "dues": [
+        false,
+        false,
+        false,
+        false,
+        false,
+        false,
+        false,
+        false,
+        false
+      ]
+    },
+    {
+      "id": "S4-001",
+      "name": "Eesha Gowda",
+      "usn": "4GW23AD006",
+      "semester": "4",
+      "username": "Eesha Gowda",
+      "password": "Eesha Gowda",
+      "dues": [
+        false,
+        false,
+        false,
+        false,
+        false,
+        false,
+        false,
+        false,
+        false
+      ]
+    },
+    {
+      "id": "S4-002",
+      "name": "Fathima S",
+      "usn": "4GW23AD007",
+      "semester": "4",
+      "username": "Fathima S",
+      "password": "Fathima S",
+      "dues": [
+        false,
+        false,
+        false,
+        false,
+        false,
+        false,
+        false,
+        false,
+        false
+      ]
+    },
+    {
+      "id": "S4-003",
+      "name": "Gayathri R",
+      "usn": "4GW23AD008",
+      "semester": "4",
+      "username": "Gayathri R",
+      "password": "Gayathri R",
+      "dues": [
+        false,
+        false,
+        false,
+        false,
+        false,
+        false,
+        false,
+        false,
+        false
+      ]
+    },
+    {
+      "id": "S4-004",
+      "name": "Harshitha K",
+      "usn": "4GW23AD009",
+      "semester": "4",
+      "username": "Harshitha K",
+      "password": "Harshitha K",
+      "dues": [
+        false,
+        false,
+        false,
+        false,
+        false,
+        false,
+        false,
+        false,
+        false
+      ]
+    },
+    {
+      "id": "S4-005",
+      "name": "Ishitha P",
+      "usn": "4GW23AD010",
+      "semester": "4",
+      "username": "Ishitha P",
+      "password": "Ishitha P",
+      "dues": [
+        false,
+        false,
+        false,
+        false,
+        false,
+        false,
+        false,
+        false,
+        false
+      ]
+    },
+    {
+      "id": "S5-001",
+      "name": "Janhavi S",
+      "usn": "4GW22AD011",
+      "semester": "5",
+      "username": "Janhavi S",
+      "password": "Janhavi S",
+      "dues": [
+        false,
+        false,
+        false,
+        false,
+        false,
+        false,
+        false,
+        false,
+        false
+      ]
+    },
+    {
+      "id": "S5-002",
+      "name": "Kavya N",
+      "usn": "4GW22AD012",
+      "semester": "5",
+      "username": "Kavya N",
+      "password": "Kavya N",
+      "dues": [
+        false,
+        false,
+        false,
+        false,
+        false,
+        false,
+        false,
+        false,
+        false
+      ]
+    },
+    {
+      "id": "S5-003",
+      "name": "Lavanya M",
+      "usn": "4GW22AD013",
+      "semester": "5",
+      "username": "Lavanya M",
+      "password": "Lavanya M",
+      "dues": [
+        false,
+        false,
+        false,
+        false,
+        false,
+        false,
+        false,
+        false,
+        false
+      ]
+    },
+    {
+      "id": "S5-004",
+      "name": "Meghana R",
+      "usn": "4GW22AD014",
+      "semester": "5",
+      "username": "Meghana R",
+      "password": "Meghana R",
+      "dues": [
+        false,
+        false,
+        false,
+        false,
+        false,
+        false,
+        false,
+        false,
+        false
+      ]
+    },
+    {
+      "id": "S5-005",
+      "name": "Nandini H",
+      "usn": "4GW22AD015",
+      "semester": "5",
+      "username": "Nandini H",
+      "password": "Nandini H",
+      "dues": [
+        false,
+        false,
+        false,
+        false,
+        false,
+        false,
+        false,
+        false,
+        false
+      ]
+    },
+    {
+      "id": "S6-001",
+      "name": "Oviya S",
+      "usn": "4GW22AD016",
+      "semester": "6",
+      "username": "Oviya S",
+      "password": "Oviya S",
+      "dues": [
+        false,
+        false,
+        false,
+        false,
+        false,
+        false,
+        false,
+        false
+      ]
+    },
+    {
+      "id": "S6-002",
+      "name": "Pooja K",
+      "usn": "4GW22AD017",
+      "semester": "6",
+      "username": "Pooja K",
+      "password": "Pooja K",
+      "dues": [
+        false,
+        false,
+        false,
+        false,
+        false,
+        false,
+        false,
+        false
+      ]
+    },
+    {
+      "id": "S6-003",
+      "name": "Rachana M",
+      "usn": "4GW22AD018",
+      "semester": "6",
+      "username": "Rachana M",
+      "password": "Rachana M",
+      "dues": [
+        false,
+        false,
+        false,
+        false,
+        false,
+        false,
+        false,
+        false
+      ]
+    },
+    {
+      "id": "S6-004",
+      "name": "Sanjana R",
+      "usn": "4GW22AD019",
+      "semester": "6",
+      "username": "Sanjana R",
+      "password": "Sanjana R",
+      "dues": [
+        false,
+        false,
+        false,
+        false,
+        false,
+        false,
+        false,
+        false
+      ]
+    },
+    {
+      "id": "S6-005",
+      "name": "Tanvi N",
+      "usn": "4GW22AD020",
+      "semester": "6",
+      "username": "Tanvi N",
+      "password": "Tanvi N",
+      "dues": [
+        false,
+        false,
+        false,
+        false,
+        false,
+        false,
+        false,
+        false
+      ]
+    },
+    {
+      "id": "S7-001",
+      "name": "Vaishnavi S",
+      "usn": "4GW21AD021",
+      "semester": "7",
+      "username": "Vaishnavi S",
+      "password": "Vaishnavi S",
+      "dues": [
+        false,
+        false,
+        false,
+        false,
+        false,
+        false
+      ]
+    },
+    {
+      "id": "S7-002",
+      "name": "Yashaswini K",
+      "usn": "4GW21AD022",
+      "semester": "7",
+      "username": "Yashaswini K",
+      "password": "Yashaswini K",
+      "dues": [
+        false,
+        false,
+        false,
+        false,
+        false,
+        false
+      ]
+    },
+    {
+      "id": "S7-003",
+      "name": "Zoya F",
+      "usn": "4GW21AD023",
+      "semester": "7",
+      "username": "Zoya F",
+      "password": "Zoya F",
+      "dues": [
+        false,
+        false,
+        false,
+        false,
+        false,
+        false
+      ]
+    },
+    {
+      "id": "S7-004",
+      "name": "Amulya R",
+      "usn": "4GW21AD024",
+      "semester": "7",
+      "username": "Amulya R",
+      "password": "Amulya R",
+      "dues": [
+        false,
+        false,
+        false,
+        false,
+        false,
+        false
+      ]
+    },
+    {
+      "id": "S7-005",
+      "name": "Bhavya N",
+      "usn": "4GW21AD025",
+      "semester": "7",
+      "username": "Bhavya N",
+      "password": "Bhavya N",
+      "dues": [
+        false,
+        false,
+        false,
+        false,
+        false,
+        false
+      ]
+    },
+    {
+      "id": "S8-001",
+      "name": "Charitha S",
+      "usn": "4GW20AD026",
+      "semester": "8",
+      "username": "Charitha S",
+      "password": "Charitha S",
+      "dues": [
+        false,
+        false,
+        false
+      ]
+    },
+    {
+      "id": "S8-002",
+      "name": "Dhanusha K",
+      "usn": "4GW20AD027",
+      "semester": "8",
+      "username": "Dhanusha K",
+      "password": "Dhanusha K",
+      "dues": [
+        false,
+        false,
+        false
+      ]
+    },
+    {
+      "id": "S8-003",
+      "name": "Inchara M",
+      "usn": "4GW20AD028",
+      "semester": "8",
+      "username": "Inchara M",
+      "password": "Inchara M",
+      "dues": [
+        false,
+        false,
+        false
+      ]
+    },
+    {
+      "id": "S8-004",
+      "name": "Keerthana R",
+      "usn": "4GW20AD029",
+      "semester": "8",
+      "username": "Keerthana R",
+      "password": "Keerthana R",
+      "dues": [
+        false,
+        false,
+        false
+      ]
+    },
+    {
+      "id": "S8-005",
+      "name": "Likitha N",
+      "usn": "4GW20AD030",
+      "semester": "8",
+      "username": "Likitha N",
+      "password": "Likitha N",
+      "dues": [
+        false,
+        false,
+        false
+      ]
+    }
+  ]
+}
